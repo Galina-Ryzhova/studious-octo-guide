@@ -1,0 +1,30 @@
+#HTML-шаблон для отображения данных
+    html_template = """
+    <!doctype html>
+    <html>
+        <head>
+            <title>Список фильмов</title>
+        </head>
+        <body>
+            <h1>Список фильмов</h1>
+            <table border="1">
+                <tr>
+                    <th>Название</th>
+                    <th>год выпуска</th>
+                    <th>Жанр</th>
+                    <th>Статус</th>
+                </tr>
+                {% for d in data %}
+                <tr>
+                    <td>{{ d[0] }}</td>
+                    <td>{{ d[1] }}</td>
+                    <td>{{ d[2] }}</td>
+                    <td>{{ d[3] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </body>
+    </html>
+    """
+
+    return render_template_string(html_template, data=data)
